@@ -1,0 +1,53 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "Objective.generated.h"
+
+class USphereComponent;
+
+UCLASS()
+class NETSHOOT_API AObjective : public AActor
+{
+	GENERATED_BODY()
+	
+public:	
+	// Sets default values for this actor's properties
+	AObjective();
+
+protected:
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UStaticMeshComponent* MeshComp;
+
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	USphereComponent* SphereComp;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Effects")
+	UParticleSystem* hitedFX;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Effects")
+	bool bIsShooted;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	int radius;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Movement")
+	int timeScale;
+
+	float elapsedTime;
+	FVector center;
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	void PlayEffects(FVector HitPoint);
+
+public:	
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+
+};
