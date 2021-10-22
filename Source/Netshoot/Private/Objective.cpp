@@ -14,11 +14,11 @@ AObjective::AObjective()
 	PrimaryActorTick.bCanEverTick = true;
 
 	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
-	MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	//MeshComp->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 	RootComponent = MeshComp;
 
 	SphereComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
-	SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	//SphereComp->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	//SphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
 	//SphereComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	SphereComp->SetupAttachment(MeshComp);
@@ -44,19 +44,4 @@ void AObjective::Tick(float DeltaTime)
 	int z = cos(elapsedTime * timeScale) * radius;
 	FVector offset = FVector(x, 0.0, z);
 	this->SetActorLocation(center + offset);
-}
-
-void AObjective::PlayEffects(FVector HitPoint)
-{
-	UGameplayStatics::SpawnEmitterAtLocation(this, hitedFX, HitPoint);
-}
-
-void AObjective::NotifyActorBeginOverlap(AActor* OtherActor)
-{
-	Super::NotifyActorBeginOverlap(OtherActor);
-
-	PlayEffects(OtherActor->GetActorLocation());
-
-	bIsShooted = true;
-
 }

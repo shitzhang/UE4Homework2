@@ -24,12 +24,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* SphereComp;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Effects")
-	UParticleSystem* hitedFX;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Effects")
-	bool bIsShooted;
-
 	UPROPERTY(EditDefaultsOnly, Category = "Movement")
 	int radius;
 
@@ -42,12 +36,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	void PlayEffects(FVector HitPoint);
-
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
 
 };
