@@ -5,8 +5,9 @@ Support timer synchronization
 
 The timer and player score board will be reset when a two-player game starts.  
 
-You can adjust "radius" and "timeScale" in "BP_Objective" blueprint to change the movement of the objective.  
+You can adjust "Movement Radius" and "Time Scale" in "MyGameState" blueprint to change the movement of the objective.  
   
 The zip file of exe(Windows-64bit) and video are in:  
-https://pan.baidu.com/s/1kf9ITELpMxm0FLQ1RqpQ9g  
-password: lo7l  
+https://pan.baidu.com/s/1-Q-nwL3vIHG-rzXfOnazaQ  
+password：cegd  
+

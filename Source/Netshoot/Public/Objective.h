@@ -24,15 +24,6 @@ protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	USphereComponent* SphereComp;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Movement")
-	int radius;
-
-	UPROPERTY(EditDefaultsOnly, Category = "Movement")
-	int timeScale;
-
-	float elapsedTime;
-	FVector center;
-
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

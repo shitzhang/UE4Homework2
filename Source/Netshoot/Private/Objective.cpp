@@ -22,7 +22,6 @@ AObjective::AObjective()
 	//SphereComp->SetCollisionResponseToAllChannels(ECR_Ignore);
 	//SphereComp->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	SphereComp->SetupAttachment(MeshComp);
-
 }
 
 // Called when the game starts or when spawned
@@ -30,18 +29,18 @@ void AObjective::BeginPlay()
 {
 	Super::BeginPlay();
 
-	elapsedTime = 0;
-	center = this->GetActorLocation();
+	//elapsedTime = 0;
+	//center = this->GetActorLocation();
 }
 
 // Called every frame
 void AObjective::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	elapsedTime += DeltaTime;
+	//elapsedTime += DeltaTime;
 
-	int x = sin(elapsedTime * timeScale) * radius;
-	int z = cos(elapsedTime * timeScale) * radius;
-	FVector offset = FVector(x, 0.0, z);
-	this->SetActorLocation(center + offset);
+	//int x = sin(elapsedTime * timeScale) * radius;
+	//int z = cos(elapsedTime * timeScale) * radius;
+	//FVector offset = FVector(x, 0.0, z);
+	//this->SetActorLocation(center + offset);
 }
